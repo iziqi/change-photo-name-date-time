@@ -11,7 +11,7 @@ import docx2txt
 import shutil
 
 # 初始化notes文件夹
-old_notes_folder = 'onenote-notes'
+old_notes_folder = 'onenote-notes' # Onenote导出的word文件放在这里
 tmp_notes_folder = 'md-tmp-notes'
 new_notes_folder = 'md-notes'
 
@@ -21,8 +21,8 @@ new_notes_folder = os.path.join(os.getcwd(), new_notes_folder)
 
 shutil.rmtree(new_notes_folder, ignore_errors=True) # 清空目标文件夹
 shutil.rmtree(tmp_notes_folder, ignore_errors=True) 
-os.makedirs(new_notes_folder)
-os.makedirs(tmp_notes_folder)
+if not os.path.exists(tmp_notes_folder): os.makedirs(tmp_notes_folder)
+if not os.path.exists(new_notes_folder): os.makedirs(new_notes_folder)
 
 # 正则表达式
 p1 = re.compile(r'^\s*\d{1,2}月\s*$') # 1月 → # 1月\n\n
