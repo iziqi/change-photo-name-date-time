@@ -1,6 +1,6 @@
 # 批量修改照片名称-日期-时间
 
-具体介绍可阅读：[批量修改照片名称日期时间【Python】 (bcwyatt.com)](https://bcwyatt.com/archives/pi-liang-xiu-gai-zhao-pian-ming-cheng-ri-qi-shi-jian-python)
+具体介绍可阅读：[批量修改照片名称日期时间【Python】 (bcwyatt.com)](https://bcwyatt.com/blogs/6)
 
 如果照片缺失了日期信息，在相册中就会显示在错误的时间线上，这让强迫症患者很苦恼。
 
@@ -14,5 +14,4 @@
 # 使用示例
 
 运行脚本会提示你想要修改name还是time，输入对应的单词就行。会动态输出倒序计数，显示正在处理哪个照片和处理的结果，最后会统计不能操作的图片及原因。
-
-![img](https://img-1313032483.cos.ap-beijing.myqcloud.com/202209082331826.png)
+![IMG_202211171102599](https://img-1313032483.cos.ap-beijing.myqcloud.com/202211171102599.webp)
