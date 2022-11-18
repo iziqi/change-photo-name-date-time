@@ -55,6 +55,37 @@ def tem_md2new_md(tmp_note, new_note):
     return new_note
 
 
+def split_md(tmp_note):
+    '''
+    按照一级标题分割文件
+    '''
+
+    # 正则表达式
+    p1 = re.compile(r'^#.*') # # XXXXX 一级标题
+    p2 = re.compile(r'^##.*') # ## XXXXX 二级标题
+    p3 = re.compile(r'.', re.DOTALL) # 匹配正文 匹配所有内容
+
+    # 按照一级标题分割文件
+    with open(tmp_note,'r',encoding='utf-8') as f:
+        for line in f: 
+            print(line)
+            if p1.search(line):
+                tmp_folder = line.split(' ')[1] # 提取一级标题名称作为文件夹名称
+                if not os.path.exists(tmp_folder): os.makedirs(tmp_folder)
+                with open(new_note,'a', encoding='utf-8') as f:
+                    f.write(tmp_note_text)
+            elif p2.search(line):
+                tmp_note_name = line.split(' ')[1] # 提取二级标题名称作为md文件名
+
+                new_note = os.path.join(tmp_folder, tmp_note_name + '.md')
+                tmp_note_text = ''
+            elif p3.search(line):
+                tmp_note_text += line
+
+            new_note_txt += line
+            with open(new_note,'a', encoding='utf-8') as f2:
+                f2.write(line)
+
 # ------------------------------------------------------------------
 ## main
 # ------------------------------------------------------------------
